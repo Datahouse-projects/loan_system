@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLoansMigration extends Migration
+class CreateLoansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,18 +14,17 @@ class CreateLoansMigration extends Migration
     public function up()
     {
         Schema::create('loans', function (Blueprint $table) {
-
             $table->increments('id');
-            $table->integer('part_id');
+            $table->integer('customer_id');
             $table->integer('amount')->default(0);
-            $table->integer('remaining_amount')->default(0);
             $table->date('start_date');
+            $table->integer('remaining_amount')->default(0);
             $table->integer('per_month')->default(0);
             $table->integer('duration')->default(0);
             $table->boolean('status');
             $table->timestamp('deadline');
             $table->string('type');
-            $table->float('interest');
+            $table->float('rate');
             $table->date('created_date');
             $table->float('total_interest');
             $table->integer('total_amount');
@@ -34,7 +33,6 @@ class CreateLoansMigration extends Migration
             $table->integer('fine');
 
             $table->timestamps();
-
         });
     }
 

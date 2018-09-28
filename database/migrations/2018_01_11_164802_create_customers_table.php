@@ -4,30 +4,26 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePartsTable extends Migration
+class CreateCustomersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
-        Schema::create('parts', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
+
             //persona details
             $table->string('full_name');
-            $table->string('date_of_birth');
-            $table->string('marital_status');
-            $table->string('nationality');
-            $table->integer('contact_id');
+            $table->string('date_of_birth')->nullable();
+            $table->string('marital_status')->nullable();
+            $table->string('nationality')->nullable();
+            $table->integer('contact_id')->nullable();
 
             //login information
             $table->string('email')->unique();
             $table->string('password');
 
             //derived attribute
-            $table->string('role'); //applicant or guarantor
             $table->boolean("is_verified")->default(false);
             $table->boolean("has_loan")->default(false);
 
@@ -36,21 +32,17 @@ class CreatePartsTable extends Migration
             $table->integer('loan_id')->nullable();
             $table->string('employer')->nullable();  //Government, NGOs
             $table->string('employment_type')->nullable(); //employed or self employed
+            $table->integer('guarantor_id')->nullable();
+            $table->string('acc_number')->nullable();
             $table->integer('average_income')->nullable();
 
             $table->rememberToken();
-
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('parts');
+        Schema::dropIfExists('customers');
     }
 }

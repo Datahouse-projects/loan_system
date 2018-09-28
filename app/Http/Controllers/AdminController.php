@@ -2,83 +2,52 @@
 
 namespace App\Http\Controllers;
 
+use App\Officer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+   //public function __construct()
+   //{
+     //   $this->middleware('auth:admin');
+   // }
+
+    //page showing list of officers
     public function index()
     {
-        //this is the view for officers added
+        $officers= Officer::all();
+        return view('admin.officers', ['officers' => $officers]);
+    }
+    public function createOfficer()
+    {
+        return view('admin.add');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function addOfficer(Request $request){
+
+        //1.0 create  officer
+        $officer = Officer::create([
+            'full_name' => $request->full_name,
+            'email' => $request->email,
+            'password' => Hash::make( "officer123") ,
+            'role' => $request->role ,
+        ]);
+
+        $officer->save();
+        return redirect()->intended(route('admin'));
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function removeOfficer($officer_id){
+
+        DB::table('officers')->where('id',$officer_id)->delete();
+
+        return redirect()->intended(route('admin'));
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
