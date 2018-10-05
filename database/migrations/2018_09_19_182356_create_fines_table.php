@@ -17,7 +17,7 @@ class CreateFinesTable extends Migration
             $table->increments('id');
             $table->integer('loan_id');
             $table->date('last_run_date');
-            $table->integer('fine_amount');
+            $table->decimal('fine_amount');
             $table->date('next_run_date');
             $table->timestamps();
         });

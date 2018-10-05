@@ -17,8 +17,8 @@ class CreatePaymentsTable extends Migration
             $table->increments('id');
             $table->integer('loan_id');
             $table->date('date');
-            $table->integer('amount');
-            $table->integer('balance');
+            $table->decimal('amount');
+            $table->decimal('balance');
             $table->string('payment_type');
             $table->boolean('verification')->default(false);
             $table->integer('payment_type_id');

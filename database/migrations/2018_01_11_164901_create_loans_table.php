@@ -16,21 +16,21 @@ class CreateLoansTable extends Migration
         Schema::create('loans', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('customer_id');
-            $table->integer('amount')->default(0);
+            $table->decimal('amount')->default(0);
             $table->date('start_date');
-            $table->integer('remaining_amount')->default(0);
+            $table->decimal('remaining_amount')->default(0);
             $table->integer('per_month')->default(0);
             $table->integer('duration')->default(0);
             $table->boolean('status');
             $table->timestamp('deadline');
             $table->string('type');
-            $table->float('rate');
+            $table->decimal('rate');
             $table->date('created_date');
-            $table->float('total_interest');
-            $table->integer('total_amount');
-            $table->integer('principal_amount');
-            $table->integer('processing_fee');
-            $table->integer('fine');
+            $table->decimal('total_interest');
+            $table->decimal('total_amount');
+            $table->decimal('principal_amount');
+            $table->decimal('processing_fee');
+            $table->decimal('fine');
 
             $table->timestamps();
         });

@@ -16,13 +16,13 @@ class CreateLoanTypesTable extends Migration
         Schema::create('loan_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description');
-            $table->float('interest');
+            $table->decimal('interest');
             $table->integer('duration');
             $table->integer('min_age');
             $table->integer('max_age');
             $table->integer('min_no_people');
             $table->integer('max_no_people');
-            $table->integer('processing_fee');
+            $table->decimal('processing_fee');
             $table->float('security_cover');
             $table->timestamps();
         });

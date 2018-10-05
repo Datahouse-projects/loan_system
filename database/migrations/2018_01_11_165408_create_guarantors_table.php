@@ -20,7 +20,7 @@ class CreateGuarantorsTable extends Migration
             //personal details
             $table->string('full_name')->nullable();
             $table->string('relationship')->nullable();
-            $table->integer('average_income')->nullable();
+            $table->decimal('average_income')->nullable();
             $table->string('nationality')->nullable();
             $table->string('occupation')->nullable();
 

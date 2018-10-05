@@ -20,8 +20,8 @@ class CreateSecurityTable extends Migration
             $table->boolean('verification')->default(false);
             $table->date('issued_date');
             $table->date('expire_date');
-            $table->integer('market_value');
-            $table->integer('cover_value');
+            $table->decimal('market_value');
+            $table->decimal('cover_value');
             $table->string('description');
             $table->integer('security_number');
             $table->timestamps();

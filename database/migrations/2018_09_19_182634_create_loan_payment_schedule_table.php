@@ -17,8 +17,8 @@ class CreateLoanPaymentScheduleTable extends Migration
             $table->increments('id');
             $table->integer('loan_id');
             $table->date('payment_date');
-            $table->integer('principal_interest');
-            $table->integer('total_amount');
+            $table->decimal('principal_interest');
+            $table->decimal('total_amount');
 
             $table->timestamps();
         });
