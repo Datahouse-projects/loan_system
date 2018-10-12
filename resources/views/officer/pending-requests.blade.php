@@ -1,9 +1,9 @@
-@extends('officer.dashboard')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12">
 
                 <div class="panel panel-default">
 
@@ -11,17 +11,17 @@
                         <div class="container-fluid">
                             <div class="navbar-header">
                                 <a style="font-size:28px" class="navbar-brand dashboard" href="{{ route('officer.pending') }}">
-                                    Officer Desk </a>
+                                    <font color="#6495ed"> Officer Desk</font> </a>
                             </div>
-                            <ul class="nav navbar-nav">
+                            <ul class="nav navbar-nav navbar-right">
 
                                 <li class="active">  <a  href="{{ route('officer.pending') }}" class="anchors" >
-                                        <span class="glyphicon glyphicon-user"></span> Loan Requests</a>
+                                        <font color="#6495ed"> <span class="glyphicon glyphicon-user"></span> Loan Requests</font></a>
                                 </li>
 
                                 <li >
                                     <a href="{{ route('officer.approved') }}" class="anchors" >
-                                        <span class="glyphicon glyphicon-usd"></span> Active Loans</a>
+                                        <font color="#6495ed"> <span class="glyphicon glyphicon-usd"></span> Active Loans</font></a>
                                 </li>
 
 
@@ -39,10 +39,10 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th>Loan ref No</th>
-                                        <th>Amount Requested</th>
-                                        <th>Payment Duration</th>
-                                        <th>Action</th>
+                                        <th><font color="#6495ed">Loan ref No</font></th>
+                                        <th><font color="#6495ed">Amount Requested</font></th>
+                                        <th><font color="#6495ed">Payment Duration</font></th>
+                                        <th><font color="#6495ed">Action</font></th>
 
                                     </tr>
                                     </thead>

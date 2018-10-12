@@ -17,13 +17,15 @@ class CreateLoanTypesTable extends Migration
             $table->increments('id');
             $table->string('description');
             $table->decimal('interest');
+            $table->string('interest_description');
             $table->integer('duration');
             $table->integer('min_age');
             $table->integer('max_age');
             $table->integer('min_no_people');
             $table->integer('max_no_people');
             $table->decimal('processing_fee');
-            $table->float('security_cover');
+            $table->integer('fine');
+            $table->float('security_cover_ratio');
             $table->timestamps();
         });
     }

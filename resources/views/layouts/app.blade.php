@@ -11,33 +11,18 @@
     <title>{{ config('app.name', 'LMS') }}</title>
 
     <!-- Styles -->
-
-    <style>
-        .anchors {
-            font-size: 18px;
-            font-weight: 500;
-            font-family: 'Ubuntu', sans-serif;
-        }
-
-        .dashboard {
-            font-weight: 700;
-            font-family: 'Ubuntu', sans-serif;
-        }
-
-    </style>
-
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/loan.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-theme.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('css/loan.css') }}" rel="stylesheet">
+
     <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+
+    <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+
 </head>
-
-
-
-
-
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
@@ -54,7 +39,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        <font color="#a52a2a">{{ config('app.name', 'LMS') }}</font>
                     </a>
                 </div>
 
@@ -66,10 +51,31 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-
                         <!-- Authentication Links -->
 
-                           
+                            @if (Auth::guest())
+                           @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <font color="#a52a2a"> {{ Auth::user()->name }} </font><span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            <font color="#a52a2a">  Logout</font>
+
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -79,9 +85,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/bootstrap.js') }}"></script>
-    <script src="{{ asset('js/npm.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-
 </body>
 </html>

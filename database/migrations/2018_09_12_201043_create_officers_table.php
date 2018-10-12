@@ -17,10 +17,11 @@ class CreateOfficersTable extends Migration
 
             $table->increments('id');
 
-            $table->string('full_name');
+            $table->string('name');
             $table->string('email');
             $table->string('password');
             $table->string('role');
+            $table->rememberToken();
             $table->timestamps();
 
         });

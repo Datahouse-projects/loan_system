@@ -16,10 +16,10 @@ class OfficerController extends Controller
      *
      * @return void
      */
-   // public function __construct()
-   // {
-     //  $this->middleware('auth:officer');
-   // }
+    public function __construct()
+   {
+     $this->middleware('auth:officer');
+    }
 
     /**
      * Show the application dashboard.

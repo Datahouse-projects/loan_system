@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -11,13 +11,13 @@
                         <div class="container-fluid">
                             <div class="navbar-header">
                                 <a style="font-size:28px" class="navbar-brand dashboard" href="{{ route('admin') }}">
-                                    Administrator Panel </a>
+                                    <font color="#6495ed"> Administrator Panel </font></a>
                             </div>
 
                             <ul class="nav navbar-nav navbar-right">
 
                                 <li >  <a  href="{{ route('admin.officer.add') }}" class="anchors" >
-                                        <span class="glyphicon glyphicon-user"></span> Add officer</a>
+                                        <font color="#6495ed"> <span class="glyphicon glyphicon-user"></span> Add officer</font></a>
                                 </li>
 
 
@@ -38,7 +38,7 @@
                             {{--APPLICATION FORM--}}
 
                             <div class="col-md-12">
-                                <div class="panel panel-success">
+                                <div class="panel panel-info">
 
                                     <div class="panel-heading">
                                         <h5>Add Officer</h5>
@@ -54,10 +54,10 @@
 
 
                                             <div class="form-group">
-                                                <label for="full_name" class="col-md-4 control-label"> Full name </label>
+                                                <label for="name" class="col-md-4 control-label"> Full name </label>
 
                                                 <div class="col-md-6">
-                                                    <input id="full_name" type="text" class="form-control" name="full_name" value=" " >
+                                                    <input id="name" type="text" class="form-control" name="name" value=" " >
                                                 </div>
                                             </div>
 

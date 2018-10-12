@@ -1,9 +1,22 @@
-@extends('admin.dashboard')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" ><font color="#d2691e"><b>Administator Panel</b></font></a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="#"><a href="{{ route('admin') }}"><font color="#6495ed"><b><span class="glyphicon glyphicon-user"></span> OFFICERS</b></font></a></li>
+                    <li class="#"><a href="{{ route('admin.loans') }}"><font color="#6495ed"><b><span class="glyphicon glyphicon-euro"></span> LOANS</b></font></a></li>
+
+                </ul>
+            </div>
+        </nav>
+
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12">
 
                 <div class="panel panel-default">
 
@@ -11,13 +24,13 @@
                         <div class="container-fluid">
                             <div class="navbar-header">
                                 <a style="font-size:28px" class="navbar-brand dashboard" href="{{ route('admin') }}">
-                                    Administrator Panel </a>
+                                    <font color="#6495ed">Officers Panel</font> </a>
                             </div>
 
                             <ul class="nav navbar-nav navbar-right">
 
                                 <li >  <a  href="{{ route('admin.officer.add') }}" class="anchors" >
-                                        <span class="glyphicon glyphicon-user"></span> Add officer</a>
+                                        <font color="#6495ed"><span class="glyphicon glyphicon-user"></span> Add officer</font></a>
                                 </li>
 
 
@@ -37,10 +50,12 @@
 
                             <table class="table">
                                 <thead>
+
                                 <tr>
-                                    <th>S/N</th>
-                                    <th>Officers's name</th>
-                                    <th>Status</th>
+                                    <th><font color="#6495ed">S/N</font></th>
+                                    <th><font color="#6495ed">Officers's name</font></th>
+                                    <th><font color="#6495ed">Email </font></th>
+                                    <th><font color="#6495ed">Status</font></th>
                                     <th> </th>
                                     <th> </th>
                                 </tr>
@@ -51,7 +66,8 @@
                                 @foreach ($officers as $officer)
                                     <tr >
                                         <td> {{$officer->id}} </td>
-                                        <td> {{$officer->full_name}}</td>
+                                        <td> {{$officer->name}}</td>
+                                        <td> {{$officer->email}}</td>
                                         <td>{{$officer->role }}</td>
 
                                         <td> <a class="btn btn-primary btn-sm " href="{{route("admin.officer.remove")}}/{{$officer->id}}"> Remove </a> </td>

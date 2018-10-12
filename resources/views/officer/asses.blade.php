@@ -1,9 +1,9 @@
-@extends('officer.dashboard')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12">
 
                 <div class="panel panel-default">
 
@@ -11,17 +11,17 @@
                         <div class="container-fluid">
                             <div class="navbar-header">
                                 <a style="font-size:28px" class="navbar-brand dashboard" href="{{ route('officer.pending') }}">
-                                    Officer Desk </a>
+                                    <font color="#6495ed"> Officer Desk</font> </a>
                             </div>
-                            <ul class="nav navbar-nav">
+                            <ul class="nav navbar-nav navbar-right">
 
                                 <li class="active">  <a  href="{{ route('officer.pending') }}" class="anchors" >
-                                        <span class="glyphicon glyphicon-user"></span> Loan Requests</a>
+                                        <font color="#6495ed"> <span class="glyphicon glyphicon-user"></span> Loan Requests</font></a>
                                 </li>
 
                                 <li >
                                     <a href="{{ route('officer.approved') }}" class="anchors" >
-                                        <span class="glyphicon glyphicon-usd"></span> Active Loans</a>
+                                        <font color="#6495ed"> <span class="glyphicon glyphicon-usd"></span> Active Loans</font></a>
                                 </li>
 
 
@@ -58,7 +58,7 @@
                                         Requested By
                                     </div>
 
-                                    <div class="panel-body">
+                                    {{--<div class="panel-body">
                                         <b>Name: </b> {{ $customer->full_name }}  <br />
                                         <b>Residence: </b>  {{  $contact->city }}, {{  $contact->region }} <br />
                                         <b>Occupation: </b> {{ $customer->employment_type }}  <br />
@@ -66,7 +66,7 @@
                                         <b>Phone: </b> {{ $contact->phone_number }} <br />
                                         <b>Next of Kin: </b> {{ $contact->next_of_kin }} <br />
                                         <b>Kin's phone: </b> {{ $contact->kin_phone_number }} <br />
-                                    </div>
+                                    </div>--}}
 
                                 </div>
                             </div>
@@ -79,12 +79,12 @@
                                     </div>
 
                                     <div class="panel-body">
-                                        <b>Name: </b> {{ $guarantor->full_name }}  <br />
+                                      {{--  <b>Name: </b> {{ $guarantor->full_name }}  <br />
                                         <b>Residence: </b>  {{  $guarantor->residence }}, {{  $contact->region }} <br />
                                         <b>Phone: </b> {{ $guarantor->phone_number }} <br />
                                         <b>Occupation: </b> {{ $guarantor->occupation }} <br />
                                         <b>Average Income : </b> {{ $guarantor->average_income }} <br />
-                                    </div>
+                                    </div>--}}
 
                                 </div>
                             </div>

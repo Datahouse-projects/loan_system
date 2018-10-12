@@ -74,13 +74,7 @@
 <div class="flex-center position-ref full-height">
     @if (Route::has('login'))
         <div class="top-right links">
-            @if (Auth::check())
-                <a style="color: white" href="{{ url('/home') }}">Home</a>
-            @else
-                <a style="color: white"  href="{{ url('/customer') }}">Login</a>
-                <a style="color: white" href="{{ url('/customer/register') }}">Register</a>
-            @endif
-        </div>
+                  </div>
     @endif
 
     <div class="content">
@@ -93,9 +87,11 @@
 
         <div class="links body_title">
 
-            <a  style="color: white" href="# "><font color="#a52a2a">Apply Loan</font></a>
+
+            <a style="color: white" class="body_title" href="{{ route('admin') }}"><font color="#a52a2a">Administrator</font></a>
             <a style="color: white"  href="{{ route('officer') }}" ><font color="#a52a2a"> Officer</font></a>
-            <a style="color: white" class="body_title" href="{{ route('admin') }}"><font color="#a52a2a">Admin</font></a>
+            <a  style="color: white" href="{{ route('customer') }} "><font color="#a52a2a">Apply Loan</font></a>
+
 
         </div>
     </div>
