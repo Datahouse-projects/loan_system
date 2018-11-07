@@ -87,8 +87,9 @@ class CustomerController extends Controller
         $loan = Loan::create([
             'amount' => $request->amount,
             'customer_id' => $request->customer_id,
-            'remaining_amount' => $request->amount,
             'duration' => $request->duration ,
+            'remaining_amount' => $request->amount,
+
             'status' => "pending" ,
         ]);
 

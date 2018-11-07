@@ -50,9 +50,9 @@
                                     </div>
                                     <div class="panel-body">
                                         <b>Name:</b> {{ Auth::user()->full_name }}  <br />
-                                        {{--<b>Phone:</b> {{  $contact->phone_number }}  <br />--}}
+                                        <b>Phone:</b> {{  $contact->phone_number }}  <br />
                                         <b>Email:</b> {{ Auth::user()->email }} <br />
-                                        {{-- <b>Residence:</b> {{  $contact->city }} , {{  $contact->region }}  <br />--}}
+                                        <b>Residence:</b> {{  $contact->city }} , {{  $contact->region }}  <br />
 
                                     </div>
 
